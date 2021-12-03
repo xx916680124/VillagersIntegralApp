@@ -25,7 +25,6 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        JSONObject j=new JSONObject();
 
     }
 
@@ -36,5 +35,6 @@ public class ListActivity extends AppCompatActivity {
     private void initView() {
         btn_back = findViewById(R.id.btn_back);
         rv_list = findViewById(R.id.rv_list);
+
     }
 }

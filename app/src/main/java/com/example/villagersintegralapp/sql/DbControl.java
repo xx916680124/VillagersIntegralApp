@@ -1,12 +1,5 @@
 package com.example.villagersintegralapp.sql;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-
-import com.example.villagersintegralapp.entity.UserEntity;
-
-import java.util.List;
-
 public class DbControl {
        /* *//**
          * Helper

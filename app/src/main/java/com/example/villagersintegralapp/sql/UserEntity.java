@@ -1,4 +1,4 @@
-package com.example.villagersintegralapp.entity;
+package com.example.villagersintegralapp.sql;
 
 
 

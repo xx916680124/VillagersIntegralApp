@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.villag.VListActivity">
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape_btn"
+            android:text="总名单"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+
+            android:id="@+id/title"
+            layout="@layout/item_title_vc"
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <Button
+            android:id="@+id/btn_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_btn"
+            android:text="查询"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/rv_vlist"
+            app:layout_constraintTop_toBottomOf="@+id/rv_vlist" />
+    <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/shape_btn"
+            android:text="添加"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btn_find"
+            app:layout_constraintTop_toBottomOf="@+id/rv_vlist" />
+    <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/shape_btn"
+            android:text="保存"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btn_add"
+            app:layout_constraintTop_toBottomOf="@+id/rv_vlist" />
+    <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_btn"
+            android:text="返回"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/rv_vlist"
+            app:layout_constraintTop_toBottomOf="@+id/rv_vlist" />
+</androidx.constraintlayout.widget.ConstraintLayout>

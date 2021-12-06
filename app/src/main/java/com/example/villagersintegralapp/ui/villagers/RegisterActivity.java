@@ -1,4 +1,4 @@
-package com.example.villagersintegralapp.ui;
+package com.example.villagersintegralapp.ui.villagers;
 
 import androidx.appcompat.app.AppCompatActivity;
 

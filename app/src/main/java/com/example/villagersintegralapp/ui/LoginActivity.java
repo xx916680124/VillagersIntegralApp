@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.villagersintegralapp.R;
+import com.example.villagersintegralapp.ui.villag.VillageCommitteeActivity;
+import com.example.villagersintegralapp.ui.villagers.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,7 +37,12 @@ public class LoginActivity extends AppCompatActivity {
             if ("".equals(name) && "".equals(password)){
                 Toast.makeText(LoginActivity.this,"用户名或密码为空",Toast.LENGTH_SHORT).show();
             }else{
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                if ("admin".equals(name) && "123456".equals(password)){
+                    startActivity(new Intent(LoginActivity.this, VillageCommitteeActivity.class));
+                }else{
+                    //查询数据库找到账户的type确定进入村民还是村委页面
+
+                }
             }
         });
 

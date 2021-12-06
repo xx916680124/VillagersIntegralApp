@@ -1,9 +1,8 @@
-package com.example.villagersintegralapp.ui;
+package com.example.villagersintegralapp.ui.villagers;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.villagersintegralapp.R;
 
-public class MainActivity extends AppCompatActivity {
+public class VillagersActivity extends AppCompatActivity {
 
     private TextView title;
     private CardView cv_query;
@@ -29,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initListener() {
-        cv_query.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, QueryActivity.class)));
-        cv_apply.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ApplyActivity.class)));
-        cv_list.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ListActivity.class)));
-        cv_shop.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ShopActivity.class)));
+        cv_query.setOnClickListener(v -> startActivity(new Intent(VillagersActivity.this, QueryActivity.class)));
+        cv_apply.setOnClickListener(v -> startActivity(new Intent(VillagersActivity.this, ApplyActivity.class)));
+        cv_list.setOnClickListener(v -> startActivity(new Intent(VillagersActivity.this, ListActivity.class)));
+        cv_shop.setOnClickListener(v -> startActivity(new Intent(VillagersActivity.this, ShopActivity.class)));
         btn_exit.setOnClickListener(v -> finish());
     }
 

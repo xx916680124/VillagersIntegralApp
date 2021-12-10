@@ -21,6 +21,7 @@ import com.example.villagersintegralapp.ui.adapter.ListAdapter;
 import com.example.villagersintegralapp.ui.adapter.VListAdapter;
 import com.example.villagersintegralapp.ui.popu.AddPopu;
 import com.example.villagersintegralapp.ui.popu.FindPopu;
+import com.example.villagersintegralapp.ui.popu.LongPopu;
 import com.lxj.xpopup.XPopup;
 
 import java.util.ArrayList;

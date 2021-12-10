@@ -10,8 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.villagersintegralapp.R;
+import com.example.villagersintegralapp.sql.DbControl;
+import com.example.villagersintegralapp.sql.VillagersEntity;
 import com.example.villagersintegralapp.ui.villag.VillageCommitteeActivity;
 import com.example.villagersintegralapp.ui.villagers.RegisterActivity;
+import com.example.villagersintegralapp.ui.villagers.VillagersActivity;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,7 +46,14 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, VillageCommitteeActivity.class));
                 }else{
                     //查询数据库找到账户的type确定进入村民还是村委页面
-
+                    List<VillagersEntity> villagersEntities = DbControl.getInstance(this).searchByWhere(name);
+                    if (villagersEntities.isEmpty()){
+                        Toast.makeText(this,"没有此用户",Toast.LENGTH_SHORT).show();
+                    }else{
+                        startActivity(new Intent(LoginActivity.this,
+                                                 villagersEntities.get(0).getType()==0?
+                                                         VillageCommitteeActivity.class: VillagersActivity.class));
+                    }
                 }
             }
         });

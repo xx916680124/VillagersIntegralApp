@@ -26,9 +26,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    greendao {
+   /* greendao {
         schemaVersion 1 //当前数据库版本
+    }*/
+    greendao {
+        schemaVersion 1 //数据库版本号
+//        daoPackage 'com.example.villagersintegralapp'
+// 设置DaoMaster、DaoSession、Dao 包名
+//        targetGenDir 'src/main/java/dao'//设置DaoMaster、DaoSession、Dao目录,请注意，这里路径用/不要用.
+        generateTests false //设置为true以自动生成单元测试。
+//        targetGenDirTests 'src/main/java' //应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
     }
+
 }
 
 dependencies {

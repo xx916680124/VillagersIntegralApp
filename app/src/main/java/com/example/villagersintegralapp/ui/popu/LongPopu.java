@@ -8,46 +8,36 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.villagersintegralapp.R;
+import com.example.villagersintegralapp.sql.DbControl;
+import com.example.villagersintegralapp.sql.VillagersEntity;
 import com.lxj.xpopup.core.CenterPopupView;
 
 public class LongPopu extends CenterPopupView {
-    public LongPopu(@NonNull Context context) {
+    VillagersEntity villagersEntity;
+    public LongPopu(@NonNull Context context, VillagersEntity villagersEntity) {
         super(context);
+        this.villagersEntity =villagersEntity;
     }
 
     @Override
     protected int getImplLayoutId() {
-        return R.layout.popu_find;
+        return R.layout.popu_long;
     }
 
     @Override
     protected void onCreate() {
         super.onCreate();
-        EditText et_find_name=findViewById(R.id.et_find_name);
 
-        Button btn_add_sure=findViewById(R.id.btn_find_find);
-        Button btn_find_cancle=findViewById(R.id.btn_find_cancle);
+        Button btn_long_update=findViewById(R.id.btn_long_update);
+        Button btn_long_delete=findViewById(R.id.btn_long_delete);
 
-        btn_add_sure.setOnClickListener(v -> {
-            boolean b = noEmpty(et_find_name);
-            if(b){
-                Toast.makeText(getContext(), "n:"+etString(et_find_name), Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(getContext(), "isEmpty", Toast.LENGTH_SHORT).show();
-            }
+        btn_long_update.setOnClickListener(v -> {
+
         });
-        btn_find_cancle.setOnClickListener(v -> dismiss());
+        btn_long_delete.setOnClickListener(v -> {
+            DbControl.getInstance(getContext()).delete(villagersEntity.getName());
+            dismiss();
+        });
 
-    }
-    public boolean noEmpty(EditText... views){
-        for (EditText view : views) {
-            if (etString(view).isEmpty()){
-                return false;
-            }
-        }
-        return true;
-    }
-    public String etString(EditText view){
-        return view.getText().toString().trim();
     }
 }

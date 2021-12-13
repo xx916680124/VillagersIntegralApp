@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +16,10 @@ import com.example.villagersintegralapp.sql.VillagersEntity;
 import com.example.villagersintegralapp.ui.villag.VillageCommitteeActivity;
 import com.example.villagersintegralapp.ui.villagers.RegisterActivity;
 import com.example.villagersintegralapp.ui.villagers.VillagersActivity;
+import com.example.villagersintegralapp.utils.SPUtils;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -42,16 +47,32 @@ public class LoginActivity extends AppCompatActivity {
             if ("".equals(name) && "".equals(password)){
                 Toast.makeText(LoginActivity.this,"用户名或密码为空",Toast.LENGTH_SHORT).show();
             }else{
+                VillagersEntity villagersEntity = null;
+                List<VillagersEntity> list = DbControl.getInstance(this).searchByWhere(name);
+
                 if ("admin".equals(name) && "123456".equals(password)){
+                    if (list.isEmpty()) {
+                        villagersEntity = new VillagersEntity(0,"admin",1,"男",9999,"北京",3);
+                        DbControl.getInstance(this).insert(villagersEntity);
+                    }else{
+                        villagersEntity= list.get(0);
+                    }
+                    String s = new Gson().toJson(villagersEntity);
+                    Log.i("login","user:"+s);
+                    SPUtils.put(this,"user",s);
+                    //管理员
                     startActivity(new Intent(LoginActivity.this, VillageCommitteeActivity.class));
                 }else{
                     //查询数据库找到账户的type确定进入村民还是村委页面
-                    List<VillagersEntity> villagersEntities = DbControl.getInstance(this).searchByWhere(name);
-                    if (villagersEntities.isEmpty()){
+                    if (list.isEmpty()){
                         Toast.makeText(this,"没有此用户",Toast.LENGTH_SHORT).show();
                     }else{
+                        villagersEntity= list.get(0);
+                        String s = new Gson().toJson(villagersEntity);
+                        Log.i("login","user:"+s);
+                        SPUtils.put(this,"user",s);
                         startActivity(new Intent(LoginActivity.this,
-                                                 villagersEntities.get(0).getType()==0?
+                                                 list.get(0).getType()==0?
                                                          VillageCommitteeActivity.class: VillagersActivity.class));
                     }
                 }

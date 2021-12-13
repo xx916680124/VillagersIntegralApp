@@ -56,16 +56,7 @@
             android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/btn_find"
             app:layout_constraintTop_toBottomOf="@+id/rv_vlist" />
-    <Button
-            android:id="@+id/btn_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:background="@drawable/shape_btn"
-            android:text="保存"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/btn_add"
-            app:layout_constraintTop_toBottomOf="@+id/rv_vlist" />
+
     <Button
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"

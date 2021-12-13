@@ -8,17 +8,18 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.villagersintegralapp.R;
 import com.example.villagersintegralapp.entity.UserEntity;
+import com.example.villagersintegralapp.sql.VillagersEntity;
 
 import java.util.List;
 
-public class VListAdapter extends BaseQuickAdapter<UserEntity, BaseViewHolder> {
+public class VListAdapter extends BaseQuickAdapter<VillagersEntity, BaseViewHolder> {
     public VListAdapter(@Nullable List<UserEntity> data) {
         super(R.layout.item_vclist);
 
     }
 
     @Override
-    protected void convert(@NonNull BaseViewHolder baseViewHolder, UserEntity userEntity) {
+    protected void convert(@NonNull BaseViewHolder baseViewHolder, VillagersEntity userEntity) {
             int itemPosition = getItemPosition(userEntity);
             baseViewHolder.setText(R.id.tv_number_vc,itemPosition+"");
             baseViewHolder.setText(R.id.tv_name_vc,userEntity.getName());

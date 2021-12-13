@@ -8,7 +8,6 @@
     android:padding="10dp">
 
     <TextView
-
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,10 +20,8 @@
 
     <EditText
         android:id="@+id/et_find_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="7dp"
         android:ems="10"
         android:focusable="true"
         android:inputType="textPersonName"
@@ -43,10 +40,9 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/et_find_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/et_find_name"
         app:layout_constraintTop_toTopOf="@+id/et_find_name"
-        app:layout_constraintVertical_bias="0.053" />
+         />
 
     <Button
         android:id="@+id/btn_find_cancle"
@@ -63,10 +59,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_find"
-        android:layout_width="409dp"
-        android:layout_height="587dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_find_cancle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_find_name" />
 

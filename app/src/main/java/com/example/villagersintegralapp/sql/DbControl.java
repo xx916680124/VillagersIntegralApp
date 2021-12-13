@@ -13,10 +13,8 @@ public class DbControl {
     //Helper
     private DaoMaster.DevOpenHelper mHelper;//获取Helper对象
     //数据库
-
     private SQLiteDatabase db;
     //DaoMaster
-
     private final DaoMaster mDaoMaster;
     //DaoSession
     private final DaoSession mDaoSession;
@@ -91,13 +89,14 @@ public class DbControl {
      * @param UserEntity
      */
     public long insert(VillagersEntity villagers) {
+        List<VillagersEntity> villagersEntities = searchAll();
+        villagers.setId(villagersEntities.size()+1);
         return dao.insert(villagers);
     }
 
     /* *
       * 更新数据
-      * @param
- com.example.villagersintegralapp.entity.UserEntity
+      * @param VillagersEntity
       */
     public void update(VillagersEntity villagers) {
         VillagersEntity mOldUserEntity = dao.queryBuilder().where(VillagersEntityDao.Properties.Id.eq(villagers.getId())).build().unique();//拿到之前的记录

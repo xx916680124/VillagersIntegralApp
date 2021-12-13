@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import com.example.villagersintegralapp.R;
 import com.example.villagersintegralapp.sql.DbControl;
 import com.example.villagersintegralapp.sql.VillagersEntity;
+import com.example.villagersintegralapp.utils.SPUtils;
+import com.google.gson.Gson;
 import com.lxj.xpopup.core.CenterPopupView;
 
 public class AddPopu extends CenterPopupView {
@@ -50,7 +52,15 @@ public class AddPopu extends CenterPopupView {
                 entity.setAge(Integer.parseInt(etString(et_add_age)));
                 entity.setAdress(etString(et_add_adress));
                 entity.setIntegral(Integer.parseInt(etString(et_add_integral)));
-                entity.setType(0);
+                String user = (String) SPUtils.get(context, "user", "");
+                VillagersEntity login = new Gson().fromJson(user, VillagersEntity.class);
+                if (login.getType()==3){
+                    //村委
+                    entity.setType(0);
+                }else {
+                    //村民
+                    entity.setType(1);
+                }
                 long insert = DbControl.getInstance(context).insert(entity);
                 Log.i("dbadd","add result："+insert);
                 dismiss();

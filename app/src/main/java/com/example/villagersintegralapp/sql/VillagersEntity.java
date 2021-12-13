@@ -8,8 +8,8 @@ import org.greenrobot.greendao.annotation.Generated;
 @Entity
 public class VillagersEntity {
     @Id(autoincrement = true)
-    @Index(unique = true)
     long id;
+    @Index(unique = true)
     String name;
     int age;
     String sex;
@@ -81,6 +81,5 @@ public class VillagersEntity {
     public void setType(int type) {
         this.type = type;
     }
-  
-  
+
 }
